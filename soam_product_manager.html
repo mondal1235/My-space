@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOAM | Store & Product Manager</title>
+<style>
+:root{--green:#244d3a;--dark:#17221d;--lime:#d7ef9b;--cream:#f7f6f1;--white:#fff;--muted:#718078;--line:#e5e9e2;--red:#b94747;--amber:#a66a19}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--dark);font-family:Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.top{background:var(--green);color:white;text-align:center;padding:9px;font-size:12px;letter-spacing:.12em}.head{height:72px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:5}.logo{font-size:27px;font-weight:900;letter-spacing:.16em}.logo span{color:#e98555}.head-actions{display:flex;gap:10px}.btn{border:0;border-radius:8px;padding:11px 16px;font-weight:700}.primary{background:var(--green);color:white}.light{background:#edf2eb;color:var(--green)}.danger{background:#faeaea;color:var(--red)}.container{max-width:1250px;width:92%;margin:30px auto}.view{display:none}.view.active{display:block}.hero{background:var(--green);color:white;border-radius:16px;padding:55px;display:flex;justify-content:space-between;align-items:center;gap:25px}.hero h1{font-size:clamp(34px,5vw,58px);margin:10px 0}.hero p{color:#dce6dd;line-height:1.6;max-width:500px}.hero-art{font-size:120px}.eyebrow{color:#d7ef9b;letter-spacing:.15em;text-transform:uppercase;font-size:11px;font-weight:bold}.section-title{margin:35px 0 18px}.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.product{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}.product-art{height:165px;background:#e9eee5;display:grid;place-items:center;font-size:65px}.product-info{padding:15px}.muted{color:var(--muted);font-size:13px}.price{font-weight:800;margin:10px 0}.admin-title{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.admin-title h1{margin:0}.admin-title p{color:var(--muted);margin:8px 0 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:25px 0}.stat{background:white;border:1px solid var(--line);border-radius:12px;padding:19px}.stat span{color:var(--muted);font-size:13px}.stat strong{display:block;font-size:27px;margin-top:9px}.panel{background:white;border:1px solid var(--line);border-radius:13px;padding:20px;margin:18px 0}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:17px}.toolbar input,.toolbar select,.field input,.field select,.field textarea{border:1px solid var(--line);border-radius:8px;padding:11px;background:white;min-width:0}.toolbar input{flex:1;min-width:190px}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:720px}th,td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--muted);font-weight:600;background:#fafbf8}.item-name{font-weight:700}.item-sub{font-size:11px;color:var(--muted);margin-top:4px}.pill{display:inline-block;border-radius:20px;padding:5px 9px;font-size:11px;background:#edf5e8;color:#32613e}.pill.low{background:#fff2dc;color:var(--amber)}.pill.out{background:#faeaea;color:var(--red)}.actions{display:flex;gap:6px}.small{padding:7px 10px;font-size:12px}.empty{text-align:center;color:var(--muted);padding:30px}.modal{display:none;position:fixed;inset:0;background:#0008;z-index:20;place-items:center;padding:15px}.modal.open{display:grid}.modal-box{background:white;border-radius:15px;padding:25px;width:min(560px,100%);max-height:92vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal-head h2{margin:0}.close{border:0;background:none;font-size:25px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:12px;font-weight:700}.field input,.field select,.field textarea{width:100%}.field.full{grid-column:1/-1}.form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}.notice{background:#fff8e8;border:1px solid #f0dfb8;color:#72521d;border-radius:9px;padding:12px;font-size:12px;line-height:1.5;margin:15px 0}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--dark);color:white;padding:12px 18px;border-radius:25px;display:none;z-index:30;font-size:13px}.toast.show{display:block}.footer{text-align:center;color:var(--muted);padding:35px;font-size:12px}
+@media(max-width:850px){.product-grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.hero{padding:35px}.hero-art{font-size:85px}}
+@media(max-width:550px){.head{padding:0 4%;height:65px}.logo{font-size:22px}.head-actions .btn{padding:9px;font-size:12px}.container{width:94%;margin:20px auto}.hero{padding:28px}.hero-art{display:none}.stats{gap:8px}.stat{padding:13px}.stat strong{font-size:22px}.product-grid{gap:10px}.product-art{height:130px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="top">SOAM · THOUGHTFUL FINDS FOR EVERYDAY LIFE</div>
+<header class="head">
+  <a class="logo" href="#" onclick="showView('store');return false">SOAM<span>.</span></a>
+  <div class="head-actions">
+    <button class="btn light" onclick="showView('store')">View Store</button>
+    <button class="btn primary" onclick="showView('admin')">Product Manager ↗</button>
+  </div>
+</header>
+
+<main>
+<section id="storeView" class="view active">
+  <div class="container">
+    <div class="hero"><div><div class="eyebrow">The SOAM edit · Curated essentials</div><h1>Everyday things.<br>Better chosen.</h1><p>A thoughtfully curated collection of useful finds for everyday life. Browse the demo catalogue below.</p><button class="btn" style="background:var(--lime);color:var(--dark)" onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'})">Explore products ↓</button></div><div class="hero-art">🛍️</div></div>
+    <h2 class="section-title" id="catalogue">Our collection</h2>
+    <p class="muted">Products shown here are managed from the Product Manager.</p>
+    <div id="storeProducts" class="product-grid"></div>
+  </div>
+</section>
+
+<section id="adminView" class="view">
+<div class="container">
+  <div class="admin-title"><div><div class="eyebrow" style="color:#b56d42">SOAM · Admin workspace</div><h1>Product management</h1><p>Add, edit, organize and monitor your store catalogue.</p></div><button class="btn primary" onclick="openForm()">＋ Add product</button></div>
+  <div class="notice"><b>Prototype notice:</b> Product changes are saved in this browser using local storage. This is not yet a secure multi-user admin system or a cloud database. Do not use it for real customer data.</div>
+  <div class="stats">
+    <div class="stat"><span>Total products</span><strong id="statProducts">0</strong></div>
+    <div class="stat"><span>Inventory units</span><strong id="statUnits">0</strong></div>
+    <div class="stat"><span>Low stock (5 or less)</span><strong id="statLow">0</strong></div>
+    <div class="stat"><span>Out of stock</span><strong id="statOut">0</strong></div>
+  </div>
+  <div class="panel">
+    <div class="toolbar">
+      <input id="adminSearch" placeholder="Search by product name or SKU..." aria-label="Search products">
+      <select id="adminCategory"><option value="All">All categories</option><option>Accessories</option><option>Home</option><option>Tech</option><option>Lifestyle</option></select>
+      <select id="adminStock"><option value="All">All stock levels</option><option value="In stock">In stock</option><option value="Low stock">Low stock</option><option value="Out of stock">Out of stock</option></select>
+    </div>
+    <div class="table-wrap"><table><thead><tr><th>PRODUCT</th><th>SKU</th><th>CATEGORY</th><th>PRICE</th><th>STOCK</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="productRows"></tbody></table></div>
+    <div id="emptyRows" class="empty" style="display:none">No products match those filters.</div>
+  </div>
+</div>
+</section>
+</main>
+<footer class="footer">© <span id="year"></span> SOAM · Product Manager prototype · Built for learning</footer>
+
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+ <div class="modal-box">
+  <div class="modal-head"><h2 id="formTitle">Add a product</h2><button class="close" onclick="closeForm()" aria-label="Close">×</button></div>
+  <form id="productForm">
+   <input type="hidden" id="editId">
+   <div class="form-grid">
+    <div class="field full"><label for="pName">Product name *</label><input id="pName" maxlength="60" required placeholder="e.g. Everyday Tote"></div>
+    <div class="field"><label for="pSku">SKU / Product code *</label><input id="pSku" maxlength="24" required placeholder="SOAM-001"></div>
+    <div class="field"><label for="pCategory">Category *</label><select id="pCategory" required><option>Accessories</option><option>Home</option><option>Tech</option><option>Lifestyle</option></select></div>
+    <div class="field"><label for="pPrice">Price (₹) *</label><input id="pPrice" type="number" min="0" step="1" required placeholder="599"></div>
+    <div class="field"><label for="pStock">Stock quantity *</label><input id="pStock" type="number" min="0" step="1" required placeholder="20"></div>
+    <div class="field"><label for="pEmoji">Product icon</label><select id="pEmoji"><option>👜</option><option>☕</option><option>🎧</option><option>🪴</option><option>⌚</option><option>📓</option><option>🔊</option><option>🧴</option><option>👕</option><option>👟</option><option>🎒</option><option>✨</option></select></div>
+    <div class="field"><label for="pStatus">Visibility</label><select id="pStatus"><option value="Active">Active</option><option value="Draft">Draft</option></select></div>
+    <div class="field full"><label for="pDescription">Short description</label><textarea id="pDescription" rows="3" maxlength="180" placeholder="A useful everyday essential..."></textarea></div>
+   </div>
+   <div class="form-actions"><button type="button" class="btn light" onclick="closeForm()">Cancel</button><button class="btn primary" type="submit">Save product</button></div>
+  </form>
+ </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const starterProducts=[
+{id:1,name:"Everyday Tote",sku:"SOAM-001",category:"Accessories",price:599,stock:18,emoji:"👜",status:"Active",description:"A practical tote for everyday essentials."},
+{id:2,name:"Ceramic Coffee Cup",sku:"SOAM-002",category:"Home",price:349,stock:4,emoji:"☕",status:"Active",description:"A simple cup for your daily coffee."},
+{id:3,name:"Wireless Earbuds",sku:"SOAM-003",category:"Tech",price:1299,stock:12,emoji:"🎧",status:"Active",description:"Compact audio for everyday listening."},
+{id:4,name:"Desk Plant Pot",sku:"SOAM-004",category:"Home",price:449,stock:0,emoji:"🪴",status:"Active",description:"A clean home for a little greenery."},
+{id:5,name:"Classic Wristwatch",sku:"SOAM-005",category:"Accessories",price:999,stock:7,emoji:"⌚",status:"Active",description:"A classic everyday accessory."},
+{id:6,name:"Daily Journal",sku:"SOAM-006",category:"Lifestyle",price:299,stock:25,emoji:"📓",status:"Draft",description:"A notebook for plans and ideas."}
+];
+const STORAGE_KEY="soam_products_v1";
+let products=loadProducts();
+function loadProducts(){try{const saved=localStorage.getItem(STORAGE_KEY);return saved?JSON.parse(saved):starterProducts.slice()}catch(e){return starterProducts.slice()}}
+function saveProducts(){localStorage.setItem(STORAGE_KEY,JSON.stringify(products))}
+function money(n){return "₹"+Number(n).toLocaleString("en-IN")}
+function stockLabel(p){return p.stock===0?"Out of stock":p.stock<=5?"Low stock":"In stock"}
+function showView(which){document.getElementById("storeView").classList.toggle("active",which==="store");document.getElementById("adminView").classList.toggle("active",which==="admin");if(which==="admin")renderAdmin();else renderStore();window.scrollTo(0,0)}
+function renderStore(){
+ const live=products.filter(p=>p.status==="Active"&&p.stock>0);
+ document.getElementById("storeProducts").innerHTML=live.length?live.map(p=>`<article class="product"><div class="product-art">${escapeHtml(p.emoji)}</div><div class="product-info"><div class="muted">${escapeHtml(p.category)}</div><h3>${escapeHtml(p.name)}</h3><div class="price">${money(p.price)}</div><div class="muted">${escapeHtml(p.description||"Thoughtful everyday essential.")}</div></div></article>`).join(""):'<div class="empty">No active products are available yet. Add products in Product Manager.</div>';
+}
+function renderAdmin(){
+ const q=document.getElementById("adminSearch").value.toLowerCase(),cat=document.getElementById("adminCategory").value,stock=document.getElementById("adminStock").value;
+ const filtered=products.filter(p=>(p.name.toLowerCase().includes(q)||p.sku.toLowerCase().includes(q))&&(cat==="All"||p.category===cat)&&(stock==="All"||stockLabel(p)===stock));
+ document.getElementById("statProducts").textContent=products.length;
+ document.getElementById("statUnits").textContent=products.reduce((s,p)=>s+p.stock,0);
+ document.getElementById("statLow").textContent=products.filter(p=>p.stock>0&&p.stock<=5).length;
+ document.getElementById("statOut").textContent=products.filter(p=>p.stock===0).length;
+ document.getElementById("productRows").innerHTML=filtered.map(p=>`<tr><td><div style="display:flex;align-items:center;gap:10px"><span style="font-size:25px">${escapeHtml(p.emoji)}</span><div><div class="item-name">${escapeHtml(p.name)}</div><div class="item-sub">${escapeHtml(p.description||"No description")}</div></div></div></td><td>${escapeHtml(p.sku)}</td><td>${escapeHtml(p.category)}</td><td>${money(p.price)}</td><td>${p.stock}</td><td><span class="pill ${p.stock===0?"out":p.stock<=5?"low":""}">${stockLabel(p)} · ${escapeHtml(p.status)}</span></td><td><div class="actions"><button class="btn light small" onclick="editProduct(${p.id})">Edit</button><button class="btn danger small" onclick="deleteProduct(${p.id})">Delete</button></div></td></tr>`).join("");
+ document.getElementById("emptyRows").style.display=filtered.length?"none":"block";
+}
+function openForm(){document.getElementById("productForm").reset();document.getElementById("editId").value="";document.getElementById("formTitle").textContent="Add a product";document.getElementById("productModal").classList.add("open");}
+function closeForm(){document.getElementById("productModal").classList.remove("open")}
+function editProduct(id){const p=products.find(x=>x.id===id);if(!p)return;document.getElementById("editId").value=p.id;document.getElementById("pName").value=p.name;document.getElementById("pSku").value=p.sku;document.getElementById("pCategory").value=p.category;document.getElementById("pPrice").value=p.price;document.getElementById("pStock").value=p.stock;document.getElementById("pEmoji").value=p.emoji;document.getElementById("pStatus").value=p.status;document.getElementById("pDescription").value=p.description||"";document.getElementById("formTitle").textContent="Edit product";document.getElementById("productModal").classList.add("open")}
+document.getElementById("productForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const id=document.getElementById("editId").value;
+ const item={id:id?Number(id):Date.now(),name:document.getElementById("pName").value.trim(),sku:document.getElementById("pSku").value.trim().toUpperCase(),category:document.getElementById("pCategory").value,price:Number(document.getElementById("pPrice").value),stock:Number(document.getElementById("pStock").value),emoji:document.getElementById("pEmoji").value,status:document.getElementById("pStatus").value,description:document.getElementById("pDescription").value.trim()};
+ if(products.some(p=>p.sku.toLowerCase()===item.sku.toLowerCase()&&p.id!==item.id)){alert("That SKU already exists. Please use a unique product code.");return}
+ if(id){products=products.map(p=>p.id===Number(id)?item:p);toast("Product updated")}else{products.unshift(item);toast("Product added to catalogue")}
+ saveProducts();closeForm();renderAdmin();renderStore();
+});
+function deleteProduct(id){const p=products.find(x=>x.id===id);if(!p)return;if(confirm(`Delete "${p.name}" from the catalogue? This cannot be undone.`)){products=products.filter(x=>x.id!==id);saveProducts();renderAdmin();renderStore();toast("Product deleted")}}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function toast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2100)}
+["adminSearch","adminCategory","adminStock"].forEach(id=>document.getElementById(id).addEventListener(id==="adminSearch"?"input":"change",renderAdmin));
+document.getElementById("year").textContent=new Date().getFullYear();
+renderStore();
+</script>
+</body>
+</html>
